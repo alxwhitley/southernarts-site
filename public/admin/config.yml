@@ -1,0 +1,32 @@
+backend:
+  name: github
+  repo: alxwhitley/southernarts-site
+  branch: main
+  base_url: https://southernarts-site.vercel.app
+  auth_endpoint: api/auth
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "src/content/settings/settings.json"
+        format: "json"
+        label: "General Settings"
+        name: "settings"
+        fields:
+          - {label: "YouTube Link", name: "youtube_link", widget: "string", required: false}
+          - {label: "Hero Text", name: "hero_text", widget: "string"}
+          - {label: "Service Times", name: "service_times", widget: "text", required: false}
+
+  - name: "announcements"
+    label: "Announcements"
+    folder: "src/content/announcements"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
