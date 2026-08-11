@@ -1,8 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { business } from "../data/business";
+import heroImage from "../assets/home-hero.png";
+import doctorImage from "../assets/doctor.png";
 
 const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(business.address.full)}`;
 const mapEmbedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(business.address.full)}&z=15&output=embed`;
@@ -40,12 +43,14 @@ const appleMapsHref = `https://maps.apple.com/?address=${encodeURIComponent(busi
 				</div>
 			</div>
 			<div class="order-1 lg:order-2">
-				<div class="relative aspect-4/5 overflow-hidden rounded-2xl bg-linear-to-br from-olive-soft/25 via-base to-gold-accent/15 shadow-lifted">
-					<div class="absolute inset-0 flex items-end p-6">
-						<span class="rounded-full bg-surface/90 px-4 py-2 text-xs font-medium text-ink-muted shadow-soft">
-							Real photography of Dr. Staehling and the practice — pending
-						</span>
-					</div>
+				<div class="relative aspect-4/5 overflow-hidden rounded-2xl shadow-lifted">
+					<Image
+						src={heroImage}
+						alt="Dr. Staehling reviewing a patient's x-rays with a team member at Southern Dental Arts"
+						class="h-full w-full object-cover object-top"
+						width={800}
+						height={1000}
+					/>
 				</div>
 			</div>
 		</section>
@@ -145,12 +150,14 @@ const appleMapsHref = `https://maps.apple.com/?address=${encodeURIComponent(busi
 		<!-- ============ 6. MEET DR. STAEHLING ============ -->
 		<section class="bg-base py-20">
 			<div class="container-page grid gap-12 lg:grid-cols-2 lg:items-center">
-				<div class="aspect-4/5 rounded-2xl bg-linear-to-br from-gold-accent/15 via-base to-olive-soft/20 shadow-soft">
-					<div class="flex h-full items-end p-6">
-						<span class="rounded-full bg-surface/90 px-4 py-2 text-xs font-medium text-ink-muted shadow-soft">
-							Portrait of Dr. Staehling — pending
-						</span>
-					</div>
+				<div class="aspect-4/5 overflow-hidden rounded-2xl shadow-soft">
+					<Image
+						src={doctorImage}
+						alt="Portrait of Dr. Ryan Staehling outside Southern Dental Arts"
+						class="h-full w-full object-cover object-top"
+						width={800}
+						height={1000}
+					/>
 				</div>
 				<div>
 					<h2>Meet Dr. Staehling</h2>
