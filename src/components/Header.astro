@@ -394,6 +394,21 @@ import { business } from "../data/business";
 		return document.getElementById(trigger.dataset.panel === undefined ? "" : trigger.getAttribute("aria-controls") || "");
 	}
 
+	// Panels anchor left:0 against their trigger's <li>, which has no idea
+	// where the viewport edge is. Wide panels on the later nav items
+	// (mega panels especially) run off the right edge at everyday desktop
+	// widths, not just small ones. Shift left only as far as needed to stay
+	// inside the page's own edge margin.
+	function clampPanelPosition(panel: HTMLElement) {
+		const margin = 24; // container-page's 1.5rem edge padding
+		panel.style.left = "0px";
+		const rect = panel.getBoundingClientRect();
+		const overflowRight = rect.right - (window.innerWidth - margin);
+		if (overflowRight > 0) {
+			panel.style.left = `-${overflowRight}px`;
+		}
+	}
+
 	function openPanel(trigger: HTMLButtonElement) {
 		clearTimeout(exitTimer);
 		if (openPanelId && openPanelId !== trigger.id) closeAll();
@@ -401,6 +416,7 @@ import { business } from "../data/business";
 		if (!panel) return;
 		trigger.setAttribute("aria-expanded", "true");
 		panel.hidden = false;
+		clampPanelPosition(panel);
 		requestAnimationFrame(() => panel.classList.add("is-open"));
 		scrim?.classList.add("is-visible");
 		openPanelId = trigger.id || trigger.dataset.panel || null;
@@ -465,6 +481,9 @@ import { business } from "../data/business";
 		const mainBar = document.getElementById("main-bar");
 		if (mainBar) mainBar.classList.toggle("is-condensed", window.scrollY > 120);
 	}, { passive: true });
+	window.addEventListener("resize", () => {
+		if (openPanelId) closeAll();
+	});
 
 	// Mobile drawer
 	const menuToggle = document.getElementById("mobile-menu-toggle");
