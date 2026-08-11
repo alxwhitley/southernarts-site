@@ -31,3 +31,6 @@ pnpm-debug.log*
 # machine-local agent hook wiring (hardcoded to this machine's home dir)
 .claude/settings.local.json
 .codex/
+
+# per-machine, per-session hook cache (absolute paths, session IDs)
+.impeccable/hook.cache.json

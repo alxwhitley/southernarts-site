@@ -1,1 +1,123 @@
 @import "tailwindcss";
+@import "@fontsource-variable/source-serif-4";
+@import "@fontsource-variable/hanken-grotesk";
+
+/*
+  Tokens sourced verbatim from DESIGN.md / ANTI-REFERENCE.md. Do not
+  re-derive or "improve" these hues — see ANTI-REFERENCE.md's palette
+  section for why. Gold has two tokens (accent vs. text) and must never
+  be collapsed into one.
+*/
+@theme {
+  --color-base: #faf7f0;
+  --color-surface: #ffffff;
+  --color-border: #efe9dc;
+  --color-ink: #26241f;
+  --color-ink-muted: #6b6357;
+  --color-gold-accent: #b8862b;
+  --color-gold-text: #8d6319;
+  --color-olive-deep: #4a5540;
+  --color-olive-soft: #7d8a6f;
+  --color-tan: #ad865b;
+  --color-brown: #6b5238;
+
+  --font-heading: "Source Serif 4 Variable", ui-serif, Georgia, serif;
+  --font-body: "Hanken Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 1px 2px rgb(74 85 64 / 0.06), 0 4px 12px rgb(74 85 64 / 0.08);
+  --shadow-lifted: 0 2px 4px rgb(74 85 64 / 0.08), 0 12px 32px rgb(74 85 64 / 0.12);
+
+  /* semantic z-index scale */
+  --z-dropdown: 20;
+  --z-sticky: 30;
+  --z-modal-backdrop: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+  --z-tooltip: 70;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    background: var(--color-base);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 1.125rem; /* 18px accessibility floor, PRODUCT.md */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    color: var(--color-olive-deep);
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: var(--color-gold-text);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-text);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--color-olive-soft);
+    color: white;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@keyframes hero-settle {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-settle {
+  animation: hero-settle 450ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-settle {
+    animation: none;
+  }
+}
+
+@utility measure {
+  max-width: 65ch;
+}
+
+@utility container-page {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}

@@ -1,6 +1,45 @@
 ---
-import "../styles/global.css"
+import "../styles/global.css";
+import { business } from "../data/business";
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+
+const schema = {
+	"@context": "https://schema.org",
+	"@type": "Dentist",
+	name: business.name,
+	image: "https://southernarts-site.vercel.app/favicon.svg",
+	telephone: business.phone.display,
+	address: {
+		"@type": "PostalAddress",
+		streetAddress: business.address.line1,
+		addressLocality: business.address.city,
+		addressRegion: business.address.state,
+		postalCode: business.address.zip,
+		addressCountry: "US",
+	},
+	openingHoursSpecification: [
+		{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"], opens: "08:00", closes: "16:30" },
+		{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Friday"], opens: "08:00", closes: "13:00" },
+	],
+	aggregateRating: {
+		"@type": "AggregateRating",
+		ratingValue: business.reviews.rating,
+		reviewCount: business.reviews.count,
+	},
+	employee: {
+		"@type": "Person",
+		name: business.doctor.name,
+		jobTitle: business.doctor.credential,
+	},
+};
 ---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -9,9 +48,32 @@ import "../styles/global.css"
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 	</head>
 	<body>
+		<!--
+			THESIS: Calm before commerce — an anxious visitor is met with
+			reassurance before any procedure is presented. Refuses the
+			carousel-plus-16-item-service-grid dental default (this practice's
+			own former site) and the cold clinical-blue medical default.
+			OWN-WORLD: warm off-white base, olive-deep headings/grounding, two
+			distinct gold tokens (decorative vs. text), Source Serif 4 headings
+			over Hanken Grotesk body, asymmetric two-panel service router
+			(never three cards), quiet single-settle motion.
+			STORY: this is an independent, founder-led Raleigh practice that
+			handles dental anxiety unusually well and has multi-generational
+			trust; it is safe to call; book a visit or call now.
+			FIRST VIEWPORT: static hero, no carousel — headline plus one
+			support line plus dual CTA (Book/Call), left on desktop, stacked
+			mobile; honest placeholder in place of unavailable real photography.
+			FORM: established-world extension. concept-seed intentionally
+			skipped — palette is locked verbatim in DESIGN.md and section
+			order is fixed by pages/home-copy.md; not an open invention case.
+			FINISH: unreviewed and undocumented is unfinished; this build ends
+			with the finish review, the verdict, and DESIGN.md.
+		-->
 		<slot />
 	</body>
 </html>
