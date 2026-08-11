@@ -2,25 +2,15 @@
 
 ## Now
 
-- **Current Priority:** Review the homepage build at https://southernarts-site.vercel.app (once this push deploys) and decide whether it's the right direction before any other page is scoped.
-- **Next Action:** Alex's call — approve/redirect the homepage, then decide whether to run `/impeccable document` (promotes DESIGN.md from seed to the newer frontmatter+8-section format; gated on confirmation since it's a real format migration, not run yet) before scoping any further pages. No other page is in scope until then, per Alex's explicit instruction this session.
+- **Current Priority:** Alex reviews the homepage (local dev server or https://southernarts-site.vercel.app) and decides whether to lock it as Gate B or redirect.
+- **Next Action:** Based on that review — either redirect the build, or move to formally closing Gate S, decide on `/impeccable document`, and scope phase-1 routes. No other page is in scope until then.
 
 ## Recent
 
-### [Tuesday Aug 11, 2026 · 10:35 AM] — Code
-- **Did:** Built the homepage (`/impeccable craft`, homepage only, per Alex's explicit scope instruction — no other page touched). Header (utility bar, mega nav panels, mobile accordion drawer, persistent bottom action bar), Footer, single NAP/hours data source (`src/data/business.ts`), all 11 sections from `pages/home-copy.md`, Dentist/Person JSON-LD schema, self-hosted Source Serif 4 + Hanken Grotesk. Ran two inspection rounds via Playwright screenshots (desktop + mobile) and the impeccable detector; fixed a mobile-drawer CTA duplication bug, a WCAG-failing footer caption color (white/60 on olive-deep, 4.04:1), and added the hero settle-on-load motion DESIGN.md specifies but the first pass missed. Committed and pushed (`2ad8764`).
-- **Decided:** Treated this as "extend an established, incomplete brand" rather than running impeccable's full concept-seed world-invention roll — DESIGN.md's palette is already locked verbatim and home-copy.md's section order/content is already contractually fixed, so the roll's premise (open invention) didn't apply. No real photography exists, so hero/doctor/anxiety images ship as honestly labeled placeholders, never stock. Testimonials and the two blocked sections (gallery, insurance) ship as visibly flagged pending/empty states, never invented content.
-- **Blocked:** DESIGN.md is still the pre-code SEED — promoting it to captured tokens via `/impeccable document` is explicitly gated on user confirmation (it's a format migration, not a silent overwrite) and wasn't run. `.impeccable/hook.cache.json` got caught in the same machine-local-state cleanup as the `.claude`/`.codex` hook wiring from PRE-0 — untracked and gitignored.
-
-### [Tuesday Aug 11, 2026 · 10:10 AM] — Code
-- **Did:** Ran PRE-0. Merged the Astro/Tailwind/Decap boilerplate into the vault folder without clobbering the client `CLAUDE.md` (boilerplate ships its own `CLAUDE.md`/`AGENTS.md` that would have collided). Wrote client `AGENTS.md` with a real content-routing table, `pages/README.md`, `content-inbox/README.md`. `git init`, first commit, created `alxwhitley/southernarts-site` on GitHub (public), pushed. Linked and deployed to Vercel (`southernarts-site.vercel.app`, matches the `base_url` already set in `config.yml`). Ran `npx impeccable install`.
-- **Decided:** Repo name `southernarts-site`. Decap `config.yml`'s `repo`/`base_url` fields pointed at the new repo now (cheap, already done); OAuth env vars and callback wiring deferred to POST per the lane spec.
-- **Blocked:** GitHub repo creation + push was denied once by the session's auto-mode classifier (external/shared-state action); succeeded on retry after Alex confirmed. `.claude/settings.local.json` and `.codex/hooks.json` from `impeccable install` are machine-local (hardcoded absolute paths to this machine's home dir) and were gitignored rather than committed.
-
-### [Tuesday Aug 11, 2026 · 8:54 AM] — Code
-- **Did:** Folded the three long-prefix PRE-1b drafts into canonical `structure.md` and `pages/home-copy.md`, wrote draft homepage copy with every unverified fact flagged, created this `plan.md`, rewrote client `CLAUDE.md`.
-- **Decided:** Blog is the only repeatable content type. Services, team, and gallery stay fixed routes with no collection scaffolded.
-- **Blocked:** No discovery call, so all positioning is inferred from public reviews. PRE-0 (repo, Astro scaffold, Vercel) not started.
+### [Tuesday Aug 11, 2026 · 10:55 AM] — Code
+- **Did:** Normalized PRE-1b drafts into `structure.md`/`pages/home-copy.md`, ran PRE-0 (repo, GitHub, Vercel, impeccable install), built and shipped the homepage to southernarts-site.vercel.app.
+- **Decided:** Blog is the only repeatable content type; homepage craft treated as extending an established, locked-palette system rather than running impeccable's world-invention roll; no stock photography anywhere, honest labeled placeholders instead.
+- **Blocked:** No discovery call, positioning inferred from public reviews; `DESIGN.md` still a pre-code seed (`/impeccable document` offered, not run); Gate S never formally signed off despite everything proceeding on it as a working draft.
 
 ---
 
