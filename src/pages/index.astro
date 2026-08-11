@@ -5,6 +5,8 @@ import Footer from "../components/Footer.astro";
 import { business } from "../data/business";
 
 const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(business.address.full)}`;
+const mapEmbedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(business.address.full)}&z=15&output=embed`;
+const appleMapsHref = `https://maps.apple.com/?address=${encodeURIComponent(business.address.full)}`;
 ---
 
 <Layout
@@ -326,9 +328,32 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 						))}
 					</ul>
 
-					<a href={mapsHref} target="_blank" rel="noopener noreferrer" class="mt-6 inline-block font-semibold text-olive-deep hover:underline">
-						Get directions →
-					</a>
+					<div class="mt-6 overflow-hidden rounded-xl border border-border">
+						<iframe
+							src={mapEmbedSrc}
+							title={`Map showing ${business.name} at ${business.address.full}`}
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							class="h-56 w-full border-0"
+						></iframe>
+					</div>
+
+					<div class="mt-4 flex flex-wrap gap-3">
+						<a
+							href={appleMapsHref}
+							class="flex-1 rounded-lg border border-olive-deep px-4 py-2.5 text-center text-sm font-semibold text-olive-deep transition hover:bg-olive-deep hover:text-white"
+						>
+							Apple Maps
+						</a>
+						<a
+							href={mapsHref}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="flex-1 rounded-lg border border-olive-deep px-4 py-2.5 text-center text-sm font-semibold text-olive-deep transition hover:bg-olive-deep hover:text-white"
+						>
+							Google Maps
+						</a>
+					</div>
 				</div>
 
 				<form class="rounded-2xl border border-border bg-surface p-8 shadow-soft">
