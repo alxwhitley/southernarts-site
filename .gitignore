@@ -27,3 +27,7 @@ pnpm-debug.log*
 
 # raw content-inbox staging, anchored to root so it never hides src/assets/
 /assets/
+
+# machine-local agent hook wiring (hardcoded to this machine's home dir)
+.claude/settings.local.json
+.codex/
