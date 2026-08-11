@@ -38,4 +38,7 @@ The three long-prefix PRE-1b drafts (`southern-dental-arts-sitemap.md`,
 - **No discovery call.** All positioning inferred from public reviews. PRODUCT.md says so explicitly.
 - Hard blockers: real photography, Dr. Staehling's own words, insurance data, PMS, gallery assets, Invisalign confirmation.
 - Decap's `settings`/`announcements` collections in `config.yml` are unmodified boilerplate (church-vertical leftovers, e.g. `service_times`) — needs real dental-appropriate fields at craft/extract time, not scoped in PRE-0.
-- Only `pages/home-copy.md` exists. Every other route in `structure.md`'s sitemap needs its own `pages/[slug]-copy.md` before it can be crafted.
+- Only `pages/home-copy.md` exists. Every other route in `structure.md`'s sitemap needs its own `pages/[slug]-copy.md` before it can be crafted. **Explicitly not in scope yet** — homepage only, per Alex's instruction.
+- Homepage is built (commit `2ad8764`) and live, but Gate B (homepage locked) hasn't happened — awaiting review.
+- `DESIGN.md` is still the pre-code SEED. `/impeccable document` would promote it to captured tokens (and migrate it to a newer frontmatter+8-section format) but is gated on user confirmation before overwriting an existing file — offered, not run.
+- The booking form on the homepage (`src/pages/index.astro`, section 10) has no submission endpoint wired — visual/structural only, matches craft scope, not full backend integration.

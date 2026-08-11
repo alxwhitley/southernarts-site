@@ -2,10 +2,15 @@
 
 ## Now
 
-- **Current Priority:** Decide the phase-1 route set, then start the craft loop.
-- **Next Action:** Write `pages/about-copy.md` (or whichever page is phase-1's second surface) so `/impeccable craft homepage only` has a full copy contract to build against, then run it on Sonnet after the shape confirm.
+- **Current Priority:** Review the homepage build at https://southernarts-site.vercel.app (once this push deploys) and decide whether it's the right direction before any other page is scoped.
+- **Next Action:** Alex's call — approve/redirect the homepage, then decide whether to run `/impeccable document` (promotes DESIGN.md from seed to the newer frontmatter+8-section format; gated on confirmation since it's a real format migration, not run yet) before scoping any further pages. No other page is in scope until then, per Alex's explicit instruction this session.
 
 ## Recent
+
+### [Tuesday Aug 11, 2026 · 10:35 AM] — Code
+- **Did:** Built the homepage (`/impeccable craft`, homepage only, per Alex's explicit scope instruction — no other page touched). Header (utility bar, mega nav panels, mobile accordion drawer, persistent bottom action bar), Footer, single NAP/hours data source (`src/data/business.ts`), all 11 sections from `pages/home-copy.md`, Dentist/Person JSON-LD schema, self-hosted Source Serif 4 + Hanken Grotesk. Ran two inspection rounds via Playwright screenshots (desktop + mobile) and the impeccable detector; fixed a mobile-drawer CTA duplication bug, a WCAG-failing footer caption color (white/60 on olive-deep, 4.04:1), and added the hero settle-on-load motion DESIGN.md specifies but the first pass missed. Committed and pushed (`2ad8764`).
+- **Decided:** Treated this as "extend an established, incomplete brand" rather than running impeccable's full concept-seed world-invention roll — DESIGN.md's palette is already locked verbatim and home-copy.md's section order/content is already contractually fixed, so the roll's premise (open invention) didn't apply. No real photography exists, so hero/doctor/anxiety images ship as honestly labeled placeholders, never stock. Testimonials and the two blocked sections (gallery, insurance) ship as visibly flagged pending/empty states, never invented content.
+- **Blocked:** DESIGN.md is still the pre-code SEED — promoting it to captured tokens via `/impeccable document` is explicitly gated on user confirmation (it's a format migration, not a silent overwrite) and wasn't run. `.impeccable/hook.cache.json` got caught in the same machine-local-state cleanup as the `.claude`/`.codex` hook wiring from PRE-0 — untracked and gitignored.
 
 ### [Tuesday Aug 11, 2026 · 10:10 AM] — Code
 - **Did:** Ran PRE-0. Merged the Astro/Tailwind/Decap boilerplate into the vault folder without clobbering the client `CLAUDE.md` (boilerplate ships its own `CLAUDE.md`/`AGENTS.md` that would have collided). Wrote client `AGENTS.md` with a real content-routing table, `pages/README.md`, `content-inbox/README.md`. `git init`, first commit, created `alxwhitley/southernarts-site` on GitHub (public), pushed. Linked and deployed to Vercel (`southernarts-site.vercel.app`, matches the `base_url` already set in `config.yml`). Ran `npx impeccable install`.
@@ -28,17 +33,18 @@
 | PRE-1b structure + copy | **Done, pending Alex's approval.** `structure.md` + `pages/home-copy.md` written. |
 | Gate S | **Open, awaiting Alex's approval** of sitemap, nav, and homepage copy. |
 | Gate A (PRODUCT + DESIGN) | **Closed.** `PRODUCT.md` written, `DESIGN.md` seeded from `ANTI-REFERENCE.md` tokens verbatim. |
-| Craft | **Unblocked**, pending phase-1 route decision and Gate S sign-off. |
+| Craft | Homepage built, live at https://southernarts-site.vercel.app. Awaiting Alex's review — nothing else scoped per explicit instruction. |
+| Gate B (homepage locked) | **Not yet.** Needs Alex's (and eventually client) sign-off. |
 
 ## Path from here
 
-1. Alex approves sitemap + nav + homepage copy, closing Gate S (technically still open despite everything downstream having proceeded on it as a working draft).
-2. Decide the phase-1 route set. The IA targets 32 pages, which is not a
-   commitment to build all 32 in the first pass.
-3. Write `pages/[slug]-copy.md` for whichever pages are in phase 1 beyond the homepage.
-4. `/impeccable craft homepage only` on Sonnet after the shape confirm.
+1. Alex reviews the built homepage and either locks it (Gate B) or redirects.
+2. Alex approves sitemap + nav + homepage copy, formally closing Gate S (everything has proceeded on it as a working draft, but it was never explicitly signed off).
+3. Decide whether to run `/impeccable document` to promote `DESIGN.md` from seed to captured tokens before building anything else — offered, not run, gated on confirmation since it changes the file's format.
+4. Decide the phase-1 route set. The IA targets 32 pages, which is not a
+   commitment to build all 32 in the first pass. Not scoped yet — Alex was explicit this session that only the homepage is in scope for now.
 5. `/impeccable extract` once the homepage is locked (Gate B), before any secondary-page craft.
-6. Loop `/impeccable craft <page>` per phase-1 route, each gated on its own copy file.
+6. Loop `/impeccable craft <page>` per phase-1 route, each gated on its own copy file — only after phase-1 is actually decided.
 
 ## Standing constraints
 
