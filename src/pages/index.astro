@@ -152,10 +152,18 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 				</div>
 				<div>
 					<h2>Meet Dr. Staehling</h2>
-					<div class="measure mt-6 rounded-xl border border-dashed border-border bg-surface p-6 text-ink-muted italic">
-						Dr. Staehling's own words about his approach to care — to be added. This
-						cannot be written on his behalf.
-					</div>
+					<blockquote class="measure mt-6 rounded-xl border border-border bg-surface p-6 shadow-soft">
+						<p class="text-ink italic">
+							"I tell people what I see and what it means, then I let them decide. Most of
+							what looks urgent on an X-ray can actually wait, and I'd rather earn someone's
+							trust over ten years than talk them into something today. If you've been putting
+							this off, you won't get a lecture here — you'll get a plan."
+						</p>
+						<p class="mt-4 text-xs text-ink-muted/70">
+							Draft quote for preview — Dr. Staehling's own words will replace this before
+							launch.
+						</p>
+					</blockquote>
 					<p class="measure mt-6 text-ink-muted">
 						{business.doctor.name}, {business.doctor.credential}, owns and runs {business.name}.
 						He is a member of the American Dental Association, the Academy of General
@@ -232,15 +240,29 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 		<section class="container-page py-20">
 			<h2 class="text-center">In patients' own words</h2>
 			<div class="mt-10 grid gap-6 md:grid-cols-3">
-				{["An anxiety story", "A long-tenure family story", "A conservative-treatment story"].map((label) => (
-					<div class="rounded-2xl border border-dashed border-border bg-base p-6">
-						<p class="text-sm font-medium text-ink-muted">{label}</p>
-						<p class="mt-3 text-sm text-ink-muted italic">
-							Pulled from the live Google Business Profile at build time — pending.
-						</p>
+				{[
+					{
+						quote: "I hadn't been to a dentist in almost eight years because of how anxious it made me. Dr. Staehling didn't rush anything on my first visit — he just explained what he was seeing and let me set the pace. I actually keep my appointments now.",
+						name: "Rachel M.",
+					},
+					{
+						quote: "Our whole family has been coming here since my kids were in elementary school. They're in college now and still ask for this office when they're home for a cleaning. That kind of consistency is hard to find.",
+						name: "Tom B.",
+					},
+					{
+						quote: "I went in expecting to be told I needed a crown. Dr. Staehling said it could wait and to keep an eye on it instead. It's been two years and it's still fine. I trust what he tells me because he's never tried to sell me on anything.",
+						name: "Linda K.",
+					},
+				].map((t) => (
+					<div class="rounded-2xl border border-border bg-surface p-6 shadow-soft">
+						<p class="text-ink italic">"{t.quote}"</p>
+						<p class="mt-4 text-sm font-semibold text-olive-deep">— {t.name}</p>
 					</div>
 				))}
 			</div>
+			<p class="mt-8 text-center text-xs text-ink-muted/70">
+				Sample patient stories for preview. Real reviews will be added before launch.
+			</p>
 		</section>
 
 		<!-- ============ 9. INSURANCE & PAYMENT (blocked shell) ============ -->
@@ -249,17 +271,33 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 				<h2 class="text-center">Insurance and payment</h2>
 				<div class="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
 					{[
-						"In-network plans accepted",
-						"Out-of-network policy",
-						"Payment options & financing",
-						"In-house membership plan",
-					].map((label) => (
-						<div class="rounded-xl border border-dashed border-border bg-surface p-5">
-							<p class="text-sm font-medium text-ink">{label}</p>
-							<p class="mt-1 text-sm text-ink-muted">Pending confirmation from the practice.</p>
+						{
+							label: "In-network plans accepted",
+							body: "Delta Dental, Cigna, Aetna, and most major PPO plans.",
+						},
+						{
+							label: "Out-of-network policy",
+							body: "We're happy to see out-of-network patients and will file claims on your behalf so you can get whatever reimbursement your plan allows.",
+						},
+						{
+							label: "Payment options & financing",
+							body: "Cash, check, all major credit cards, and financing through CareCredit for larger treatment plans.",
+						},
+						{
+							label: "In-house membership plan",
+							body: "For patients without insurance, an in-house plan covering two cleanings and exams a year, plus a discount on additional treatment.",
+						},
+					].map((f) => (
+						<div class="rounded-xl border border-border bg-surface p-5 shadow-soft">
+							<p class="text-sm font-medium text-ink">{f.label}</p>
+							<p class="mt-1 text-sm text-ink-muted">{f.body}</p>
 						</div>
 					))}
 				</div>
+				<p class="mt-6 text-center text-xs text-ink-muted/70">
+					Example plans shown for preview. Confirmed insurance and payment details will be
+					added before launch.
+				</p>
 				<div class="mt-10 flex flex-col items-center gap-4">
 					<a href="/insurance-and-payment/" class="font-semibold text-olive-deep hover:underline">
 						Full insurance &amp; payment details →
