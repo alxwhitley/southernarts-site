@@ -174,17 +174,57 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 			</div>
 		</section>
 
-		<!-- ============ 7. SMILE GALLERY TEASER (blocked — consult fallback) ============ -->
+		<!-- ============ 7. SMILE GALLERY PREVIEW (placeholder tiles, real cases pending) ============ -->
 		<section class="border-y border-border bg-surface py-16">
-			<div class="container-page text-center">
-				<h2>Not sure where to start?</h2>
-				<p class="measure mx-auto mt-4 text-ink-muted">
-					A consultation is a conversation about what you want to change and what it would
-					take to get there. No treatment happens that day.
-				</p>
-				<a href="/book/" class="mt-6 inline-block rounded-lg bg-gold-text px-7 py-3.5 font-semibold text-white shadow-soft transition hover:brightness-110">
-					Book a consultation
-				</a>
+			<div class="container-page">
+				<div class="text-center">
+					<h2>Real results, real patients</h2>
+					<p class="measure mx-auto mt-4 text-ink-muted">
+						A preview of cosmetic work we've done. The cases below are placeholders — real
+						before-and-after photos are on the way.
+					</p>
+				</div>
+
+				<div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+					{Array.from({ length: 4 }).map((_, i) => (
+						<div class="rounded-2xl border border-border bg-base p-3 shadow-soft">
+							<div class="grid grid-cols-2 gap-2">
+								<div class="relative aspect-4/5 overflow-hidden rounded-xl bg-linear-to-br from-olive-soft/25 via-base to-gold-accent/15">
+									<div class="absolute inset-0 flex items-end p-3">
+										<span class="rounded-full bg-surface/90 px-2.5 py-1 text-[11px] font-medium text-ink-muted shadow-soft">
+											Before
+										</span>
+									</div>
+								</div>
+								<div class="relative aspect-4/5 overflow-hidden rounded-xl bg-linear-to-br from-gold-accent/15 via-base to-olive-soft/25">
+									<div class="absolute inset-0 flex items-end p-3">
+										<span class="rounded-full bg-surface/90 px-2.5 py-1 text-[11px] font-medium text-ink-muted shadow-soft">
+											After
+										</span>
+									</div>
+								</div>
+							</div>
+							<p class="mt-3 text-sm text-ink-muted">Before/after photos — pending</p>
+						</div>
+					))}
+				</div>
+
+				<div class="mt-8 text-center">
+					<a href="/smile-gallery/" class="font-semibold text-olive-deep hover:underline">
+						See more results →
+					</a>
+				</div>
+
+				<div class="mx-auto mt-12 max-w-xl border-t border-border pt-10 text-center">
+					<h3>Not sure where to start?</h3>
+					<p class="measure mx-auto mt-3 text-sm text-ink-muted">
+						A consultation is a conversation about what you want to change and what it would
+						take to get there. No treatment happens that day.
+					</p>
+					<a href="/book/" class="mt-5 inline-block rounded-lg bg-gold-text px-7 py-3.5 font-semibold text-white shadow-soft transition hover:brightness-110">
+						Book a consultation
+					</a>
+				</div>
 			</div>
 		</section>
 

@@ -194,21 +194,25 @@ asset here.
 
 **Job:** visual proof for the cosmetic buyer.
 
-**Status: BLOCKED.** Requires real before/after cases with written patient
-consent.
+**Status: SHELL APPROVED, ASSETS PENDING** (updated 2026-08-11). Alex has
+asked for the section shell to ship now with honest labeled placeholders,
+matching the pattern already used in the hero, anxiety, and doctor sections.
+Real before/after cases with written patient consent still block the actual
+photography — do not substitute stock before/after imagery, it is both
+dishonest and instantly recognizable. Swap placeholders for real cases as
+they're supplied; no other change to the section should be needed.
 
-**If assets are unavailable at build time, omit this section entirely.** Do
-not substitute stock before/after imagery. It is both dishonest and instantly
-recognizable. If vertical rhythm needs filling, use this consult block:
-
-- **H2:** Not sure where to start?
-- Body: A consultation is a conversation about what you want to change and
-  what it would take to get there. No treatment happens that day.
-- CTA: Book a consultation → `/book/`
-
-**If assets are available:** three to four cases, before/after slider or
-paired images, one line of context each. CTA: See more results →
-`/smile-gallery/`
+- **H2:** Real results, real patients
+- Body: A short line naming this as a preview of cosmetic work, with a nod
+  that these are placeholders pending real cases.
+- Structure: three to four placeholder tiles in a grid (paired
+  before/after framing, not a slider — keeps this shippable without slider
+  JS before real assets exist). Each tile carries a "Before/after photos —
+  pending" caption in the same style as other pending-photo captions on this
+  page. No names, no invented procedures on the placeholders.
+- CTA: See more results → `/smile-gallery/`
+- CTA (secondary, kept from the old fallback since it still earns its
+  place): Not sure where to start? Book a consultation → `/book/`
 
 ---
 
